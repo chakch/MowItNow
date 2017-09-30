@@ -3,13 +3,13 @@ import java.text.MessageFormat;
 public class Lawnmover {
 
     private Position position;
-    private Orientation orientation;
+    private Direction orientation;
 
     private Position lowerLimit = new Position(0,0) ;
     private Position upperLimit ;
 
 
-    public  Lawnmover(Position position,Orientation orientation,Position upperLimit){
+    public  Lawnmover(Position position, Direction orientation, Position upperLimit){
         this.position =position;
         this.orientation = orientation;
         this.upperLimit =upperLimit;
@@ -21,7 +21,7 @@ public class Lawnmover {
     public Integer getYPosition(){
         return position.getY();
     }
-    public Orientation getOrientation(){
+    public Direction getOrientation(){
         return orientation;
     }
 
@@ -38,16 +38,16 @@ public class Lawnmover {
     }
 
     public Boolean canMove(){
-        if(orientation.getCode().equals("S")){
+        if(orientation.getType().equals(OrientationType.S)){
             return position.getY()> lowerLimit.getY();
         }
-        if(orientation.getCode().equals("N")){
+        if(orientation.getType().equals(OrientationType.N)){
             return position.getY()< upperLimit.getY();
         }
-        if(orientation.getCode().equals("W")){
+        if(orientation.getType().equals(OrientationType.W)){
             return position.getX()> lowerLimit.getX();
         }
-        if(orientation.getCode().equals("E")){
+        if(orientation.getType().equals(OrientationType.E)){
             return position.getX()< upperLimit.getX();
         }
         return true;
@@ -58,6 +58,6 @@ public class Lawnmover {
     }
 
     public void  printInfo(){
-        System.out.println(MessageFormat.format("Position (x:{0},y:{1}), Direction:{2}",position.getX(),getYPosition(),orientation.getCode()));
+        System.out.println(MessageFormat.format("Position (x:{0},y:{1}), Direction:{2}",position.getX(),getYPosition(),orientation.getType()));
     }
 }

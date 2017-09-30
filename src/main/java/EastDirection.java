@@ -1,18 +1,15 @@
-import javafx.geometry.Pos;
-import sun.tools.jconsole.InternalDialog;
-
-public class EastDirection extends Orientation {
+public class EastDirection extends Direction {
 
 
     public EastDirection() {
-        super("E");
+        super(OrientationType.E);
     }
 
-    public Orientation turnRight() {
+    public Direction turnRight() {
         return new SouthDirection();
     }
 
-    public Orientation turnLeft() {
+    public Direction turnLeft() {
         return  new NorthDirection();
     }
 

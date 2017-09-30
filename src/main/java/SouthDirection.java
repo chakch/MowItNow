@@ -1,15 +1,15 @@
-public class SouthDirection extends Orientation {
+public class SouthDirection extends Direction {
 
 
     public SouthDirection() {
-        super("S");
+        super(OrientationType.S);
     }
 
-    public Orientation turnLeft() {
+    public Direction turnLeft() {
         return new EastDirection();
     }
 
-    public Orientation turnRight() {
+    public Direction turnRight() {
         return new WestDirection();
     }
 

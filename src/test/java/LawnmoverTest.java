@@ -13,29 +13,29 @@ public class LawnmoverTest {
     public void checkLawmMoverInitialPosition(){
         Assert.assertEquals(Integer.valueOf(0), lawnmover.getXPosition());
         Assert.assertEquals(Integer.valueOf(0), lawnmover.getYPosition());
-        Assert.assertEquals("N", lawnmover.getOrientation().getCode());
+        Assert.assertEquals(OrientationType.N, lawnmover.getOrientation().getType());
     }
     @Test
     public void changeLawmmDirectionToTheEast(){
         lawnmover.rotate("D");
-        Assert.assertEquals("E", lawnmover.getOrientation().getCode());
+        Assert.assertEquals(OrientationType.E, lawnmover.getOrientation().getType());
     }
     @Test
     public void changeLawmmDirectionToTheWest(){
         lawnmover.rotate("G");
-        Assert.assertEquals("W", lawnmover.getOrientation().getCode());
+        Assert.assertEquals(OrientationType.W, lawnmover.getOrientation().getType());
     }
     @Test
     public void changeLawmmDirectionToTheSouthFromD(){
         lawnmover.rotate("D");
         lawnmover.rotate("D");
-        Assert.assertEquals("S", lawnmover.getOrientation().getCode());
+        Assert.assertEquals(OrientationType.S, lawnmover.getOrientation().getType());
     }
     @Test
     public void changeLawmmDirectionToTheSouthFromG(){
         lawnmover.rotate("G");
         lawnmover.rotate("G");
-        Assert.assertEquals("S", lawnmover.getOrientation().getCode());
+        Assert.assertEquals(OrientationType.S, lawnmover.getOrientation().getType());
     }
     @Test
     public void changeLawmmDirectionFromNorthToNorth(){
@@ -43,7 +43,7 @@ public class LawnmoverTest {
         lawnmover.rotate("G");
         lawnmover.rotate("G");
         lawnmover.rotate("G");
-        Assert.assertEquals("N", lawnmover.getOrientation().getCode());
+        Assert.assertEquals(OrientationType.N, lawnmover.getOrientation().getType());
     }
     @Test
     public void moveYDirectionByOne(){

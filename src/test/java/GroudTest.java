@@ -1,4 +1,3 @@
-import javafx.geometry.Pos;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,7 +23,7 @@ public class GroudTest {
         applyInstructionToLawnMover(lawnmoverOne,lawnmoverOneInstruction);
         Assert.assertEquals(Integer.valueOf(3),lawnmoverOne.getPosition().getY());
         Assert.assertEquals(Integer.valueOf(1),lawnmoverOne.getPosition().getX());
-        Assert.assertEquals("N",lawnmoverOne.getOrientation().getCode());
+        Assert.assertEquals(OrientationType.N,lawnmoverOne.getOrientation().getType());
 
     }
     @Test
@@ -33,7 +32,7 @@ public class GroudTest {
         applyInstructionToLawnMover(lawnmoverTwo,lawnmoverTwoInstruction);
         Assert.assertEquals(Integer.valueOf(1),lawnmoverTwo.getPosition().getY());
         Assert.assertEquals(Integer.valueOf(5),lawnmoverTwo.getPosition().getX());
-        Assert.assertEquals("E",lawnmoverTwo.getOrientation().getCode());
+        Assert.assertEquals(OrientationType.E,lawnmoverTwo.getOrientation().getType());
 
     }
 

@@ -1,7 +1,7 @@
 
 public abstract class Direction implements IDirection {
 
-    protected OrientationType type;
+    protected final OrientationType type;
 
     public Direction(OrientationType type){
         this.type = type;

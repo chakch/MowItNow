@@ -1,14 +1,14 @@
 
 import java.text.MessageFormat;
 
-public class Lawnmover {
+class Lawnmover {
 
     public static final String LAWNMOVER_INFORMATION = "Position (x:{0},y:{1}), Orientation:{2}";
     private Position position;
     private IDirection direction;
 
-    private Position lowerLimit = new Position(0,0) ;
-    private Position upperLimit ;
+    private final Position lowerLimit = new Position(0,0) ;
+    private final Position upperLimit ;
 
 
     public  Lawnmover(Position position, IDirection direction, Position upperLimit){
@@ -40,15 +40,15 @@ public class Lawnmover {
     }
 
     public void command(InputCommand inputCommand){
-        if (inputCommand.equals(inputCommand.A)) {
+        if (inputCommand.equals(InputCommand.A)) {
             if(canMove()){
                 move();
             }
         }else{
             rotate(inputCommand);
         }
-
     }
+
     public Boolean canMove(){
         if(direction.getType().equals(OrientationType.S)){
             return position.getY()> lowerLimit.getY();

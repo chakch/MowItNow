@@ -11,23 +11,17 @@ public class GroudTest {
     private char[] lawnmoverTwoInstruction = "AADAADADDA".toCharArray();
 
 
-    @Before
-    public void GroudTest(){
+
+    @Test
+    public void mowItNowGlobalTest(){
         maxPosition = new Position(5,5);
         lawnmoverOne = new Lawnmover(new Position(1,2),new NorthDirection(),maxPosition);
         lawnmoverTwo = new Lawnmover(new Position(3,3),new EastDirection(),maxPosition);
-    }
-    @Test
-    public void test(){
 
         applyInstructionToLawnMover(lawnmoverOne,lawnmoverOneInstruction);
         Assert.assertEquals(Integer.valueOf(3),lawnmoverOne.getPosition().getY());
         Assert.assertEquals(Integer.valueOf(1),lawnmoverOne.getPosition().getX());
         Assert.assertEquals(OrientationType.N,lawnmoverOne.getDirection().getType());
-
-    }
-    @Test
-    public void test1(){
 
         applyInstructionToLawnMover(lawnmoverTwo,lawnmoverTwoInstruction);
         Assert.assertEquals(Integer.valueOf(1),lawnmoverTwo.getPosition().getY());

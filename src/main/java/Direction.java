@@ -1,12 +1,13 @@
-public abstract class Direction {
 
-    protected  OrientationType type;
+public abstract class Direction implements IDirection {
+
+    protected OrientationType type;
 
     public Direction(OrientationType type){
         this.type = type;
     }
-    public abstract Direction turnRight();
-    public abstract Direction turnLeft();
+    public abstract IDirection turnRight();
+    public abstract IDirection turnLeft();
 
     public abstract Position move(Position position);
     public OrientationType getType(){

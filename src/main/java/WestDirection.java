@@ -1,3 +1,5 @@
+
+
 public class WestDirection extends Direction {
 
 
@@ -5,15 +7,15 @@ public class WestDirection extends Direction {
         super(OrientationType.W);
     }
 
-    public Direction turnRight() {
+    public IDirection turnRight() {
         return new NorthDirection();
     }
 
-    public Direction turnLeft() {
+    public IDirection turnLeft() {
         return new SouthDirection();
     }
 
     public Position move(Position position) {
-        return new Position(Integer.valueOf(position.getX()-1),position.getY());
+        return new Position(position.getX()-1,position.getY());
     }
 }

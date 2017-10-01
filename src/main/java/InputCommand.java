@@ -1,4 +1,3 @@
-package PACKAGE_NAME;
-
-public enum InputCommand {
+public enum InputCommand{
+    D,G,A
 }

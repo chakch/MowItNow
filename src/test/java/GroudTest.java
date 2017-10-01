@@ -1,13 +1,14 @@
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class GroudTest {
-    Position maxPosition ;
-    Lawnmover lawnmoverOne;
-    Lawnmover lawnmoverTwo;
-    String[] lawnmoverOneInstruction = "GAGAGAGAA".split("");
-    String[] lawnmoverTwoInstruction = "AADAADADDA".split("");
+    private Position maxPosition ;
+    private Lawnmover lawnmoverOne;
+    private Lawnmover lawnmoverTwo;
+    private char[] lawnmoverOneInstruction = "GAGAGAGAA".toCharArray();
+    private char[] lawnmoverTwoInstruction = "AADAADADDA".toCharArray();
 
 
     @Before
@@ -19,11 +20,10 @@ public class GroudTest {
     @Test
     public void test(){
 
-
         applyInstructionToLawnMover(lawnmoverOne,lawnmoverOneInstruction);
         Assert.assertEquals(Integer.valueOf(3),lawnmoverOne.getPosition().getY());
         Assert.assertEquals(Integer.valueOf(1),lawnmoverOne.getPosition().getX());
-        Assert.assertEquals(OrientationType.N,lawnmoverOne.getOrientation().getType());
+        Assert.assertEquals(OrientationType.N,lawnmoverOne.getDirection().getType());
 
     }
     @Test
@@ -32,19 +32,14 @@ public class GroudTest {
         applyInstructionToLawnMover(lawnmoverTwo,lawnmoverTwoInstruction);
         Assert.assertEquals(Integer.valueOf(1),lawnmoverTwo.getPosition().getY());
         Assert.assertEquals(Integer.valueOf(5),lawnmoverTwo.getPosition().getX());
-        Assert.assertEquals(OrientationType.E,lawnmoverTwo.getOrientation().getType());
+        Assert.assertEquals(OrientationType.E,lawnmoverTwo.getDirection().getType());
 
     }
 
-    private void applyInstructionToLawnMover(Lawnmover lawnmover,String[] instruction) {
-        for(String s:instruction ){
-            System.out.println(s);
-            if(s.equals("D")|| s.equals("G")){
-                lawnmover.rotate(s);
-            }else if(s.equals("A")&&lawnmover.canMove()){
-                lawnmover.move();
-            }
-            lawnmover.printInfo();
+    private void applyInstructionToLawnMover(Lawnmover lawnmover,char[] instruction) {
+        for(char s:instruction ){
+            lawnmover.command(InputCommand.valueOf(String.valueOf(s)));
         }
+        lawnmover.printInfo();
     }
 }

@@ -1,3 +1,4 @@
+
 public class EastDirection extends Direction {
 
 
@@ -5,16 +6,16 @@ public class EastDirection extends Direction {
         super(OrientationType.E);
     }
 
-    public Direction turnRight() {
+    public IDirection turnRight() {
         return new SouthDirection();
     }
 
-    public Direction turnLeft() {
+    public IDirection turnLeft() {
         return  new NorthDirection();
     }
 
     public Position move(Position position) {
-        return new Position(Integer.valueOf(position.getX()+1),position.getY());
+        return new Position(position.getX()+1,position.getY());
     }
 
 }

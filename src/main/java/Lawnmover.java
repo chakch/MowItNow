@@ -1,17 +1,19 @@
+
 import java.text.MessageFormat;
 
 public class Lawnmover {
 
+    public static final String LAWNMOVER_INFORMATION = "Position (x:{0},y:{1}), Orientation:{2}";
     private Position position;
-    private Direction orientation;
+    private IDirection direction;
 
     private Position lowerLimit = new Position(0,0) ;
     private Position upperLimit ;
 
 
-    public  Lawnmover(Position position, Direction orientation, Position upperLimit){
+    public  Lawnmover(Position position, IDirection direction, Position upperLimit){
         this.position =position;
-        this.orientation = orientation;
+        this.direction = direction;
         this.upperLimit =upperLimit;
     }
 
@@ -21,33 +23,43 @@ public class Lawnmover {
     public Integer getYPosition(){
         return position.getY();
     }
-    public Direction getOrientation(){
-        return orientation;
+    public IDirection getDirection(){
+        return direction;
     }
 
-    public void rotate(String d) {
-        if ("D".equals(d)){
-           orientation= orientation.turnRight();
-        }else if ("G".equals(d)){
-            orientation= orientation.turnLeft();
+    public void rotate(InputCommand inputCommand) {
+        if (InputCommand.D.equals(inputCommand)){
+           direction = direction.turnRight();
+        }else if (InputCommand.G.equals(inputCommand)){
+            direction = direction.turnLeft();
         }
     }
 
     public void move(){
-        position =orientation.move(position);
+        position = direction.move(position);
     }
 
+    public void command(InputCommand inputCommand){
+        if (inputCommand.equals(inputCommand.A)) {
+            if(canMove()){
+                move();
+            }
+        }else{
+            rotate(inputCommand);
+        }
+
+    }
     public Boolean canMove(){
-        if(orientation.getType().equals(OrientationType.S)){
+        if(direction.getType().equals(OrientationType.S)){
             return position.getY()> lowerLimit.getY();
         }
-        if(orientation.getType().equals(OrientationType.N)){
+        if(direction.getType().equals(OrientationType.N)){
             return position.getY()< upperLimit.getY();
         }
-        if(orientation.getType().equals(OrientationType.W)){
+        if(direction.getType().equals(OrientationType.W)){
             return position.getX()> lowerLimit.getX();
         }
-        if(orientation.getType().equals(OrientationType.E)){
+        if(direction.getType().equals(OrientationType.E)){
             return position.getX()< upperLimit.getX();
         }
         return true;
@@ -58,6 +70,8 @@ public class Lawnmover {
     }
 
     public void  printInfo(){
-        System.out.println(MessageFormat.format("Position (x:{0},y:{1}), Direction:{2}",position.getX(),getYPosition(),orientation.getType()));
+        System.out.println(MessageFormat.format(LAWNMOVER_INFORMATION,position.getX(),getYPosition(), direction.getType()));
     }
+
+
 }

@@ -1,5 +1,11 @@
 package com.xebia.mow_it_now;
 
+import com.xebia.mow_it_now.model.EastDirection;
+import com.xebia.mow_it_now.model.NorthDirection;
+import com.xebia.mow_it_now.model.OrientationType;
+import com.xebia.mow_it_now.model.Position;
+import com.xebia.mow_it_now.service.Lawnmover;
+import com.xebia.mow_it_now.service.LawnmoverCommand;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,10 +1,14 @@
-package com.xebia.mow_it_now;
+package com.xebia.mow_it_now.service;
+
+import com.xebia.mow_it_now.model.IDirection;
+import com.xebia.mow_it_now.model.OrientationType;
+import com.xebia.mow_it_now.model.Position;
 
 import java.text.MessageFormat;
 
 public class Lawnmover {
 
-    public static final String LAWNMOVER_INFORMATION = "com.xebia.mow_it_now.Position (x:{0},y:{1}), Orientation:{2}";
+    private static final String LAWNMOVER_INFORMATION = "com.xebia.mow_it_now.model.Position (x:{0},y:{1}), Orientation:{2}";
     private Position position;
     private IDirection direction;
 

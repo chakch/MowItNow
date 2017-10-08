@@ -1,8 +1,8 @@
-package com.xebia.mow_it_now;
+package com.xebia.mow_it_now.model;
 
 public abstract class Direction implements IDirection {
 
-    protected final OrientationType type;
+    private final OrientationType type;
 
     public Direction(OrientationType type){
         this.type = type;

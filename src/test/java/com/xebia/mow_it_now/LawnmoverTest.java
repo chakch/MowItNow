@@ -1,5 +1,8 @@
 package com.xebia.mow_it_now;
 
+import com.xebia.mow_it_now.model.*;
+import com.xebia.mow_it_now.service.Lawnmover;
+import com.xebia.mow_it_now.service.LawnmoverCommand;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

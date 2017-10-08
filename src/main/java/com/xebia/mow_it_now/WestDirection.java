@@ -1,4 +1,4 @@
-
+package com.xebia.mow_it_now;
 
 public class WestDirection extends Direction {
 

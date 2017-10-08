@@ -1,3 +1,5 @@
+package com.xebia.mow_it_now;
+
 public class Position {
 
     private Integer x;

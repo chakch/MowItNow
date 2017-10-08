@@ -1,9 +1,9 @@
+package com.xebia.mow_it_now;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
-public class GroudTest {
+public class LawnmoverITest {
     private Position maxPosition ;
     private Lawnmover lawnmoverOne;
     private Lawnmover lawnmoverTwo;
@@ -32,7 +32,7 @@ public class GroudTest {
 
     private void applyInstructionToLawnMover(Lawnmover lawnmover,char[] instruction) {
         for(char s:instruction ){
-            lawnmover.command(InputCommand.valueOf(String.valueOf(s)));
+            lawnmover.command(LawnmoverCommand.valueOf(String.valueOf(s)));
         }
         lawnmover.printInfo();
     }

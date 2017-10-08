@@ -1,9 +1,10 @@
+package com.xebia.mow_it_now;
 
 import java.text.MessageFormat;
 
-class Lawnmover {
+public class Lawnmover {
 
-    public static final String LAWNMOVER_INFORMATION = "Position (x:{0},y:{1}), Orientation:{2}";
+    public static final String LAWNMOVER_INFORMATION = "com.xebia.mow_it_now.Position (x:{0},y:{1}), Orientation:{2}";
     private Position position;
     private IDirection direction;
 
@@ -17,20 +18,14 @@ class Lawnmover {
         this.upperLimit =upperLimit;
     }
 
-    public Integer getXPosition(){
-        return position.getX();
-    }
-    public Integer getYPosition(){
-        return position.getY();
-    }
     public IDirection getDirection(){
         return direction;
     }
 
-    public void rotate(InputCommand inputCommand) {
-        if (InputCommand.D.equals(inputCommand)){
+    public void rotate(LawnmoverCommand inputCommand) {
+        if (LawnmoverCommand.D.equals(inputCommand)){
            direction = direction.turnRight();
-        }else if (InputCommand.G.equals(inputCommand)){
+        }else if (LawnmoverCommand.G.equals(inputCommand)){
             direction = direction.turnLeft();
         }
     }
@@ -39,8 +34,8 @@ class Lawnmover {
         position = direction.move(position);
     }
 
-    public void command(InputCommand inputCommand){
-        if (inputCommand.equals(InputCommand.A)) {
+    public void command(LawnmoverCommand inputCommand){
+        if (inputCommand.equals(LawnmoverCommand.A)) {
             if(canMove()){
                 move();
             }
@@ -70,7 +65,7 @@ class Lawnmover {
     }
 
     public void  printInfo(){
-        System.out.println(MessageFormat.format(LAWNMOVER_INFORMATION,position.getX(),getYPosition(), direction.getType()));
+        System.out.println(MessageFormat.format(LAWNMOVER_INFORMATION,position.getX(),position.getY(), direction.getType()));
     }
 
 
